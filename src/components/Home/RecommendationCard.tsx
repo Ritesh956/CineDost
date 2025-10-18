@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Movie } from '../../types';
 import api from '../../services/api';
+import { PLACEHOLDER_IMAGE } from '../../utils/constants';
 
 interface Props {
   movie: Movie;
@@ -15,7 +16,7 @@ const RecommendationCard: React.FC<Props> = ({ movie }) => {
 
   const imageUrl = movie.poster_path 
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : '/placeholder-movie.jpg';
+    : PLACEHOLDER_IMAGE;
 
   const handleCardClick = (e?: React.MouseEvent) => {
     if (e && (e.target as HTMLElement).closest('button')) return; // don't navigate when clicking a button
@@ -95,7 +96,7 @@ const RecommendationCard: React.FC<Props> = ({ movie }) => {
           alt={movie.title}
           className="movie-poster"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = '/placeholder-movie.jpg';
+            (e.target as HTMLImageElement).src = PLACEHOLDER_IMAGE;
           }}
         />
         

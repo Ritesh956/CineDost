@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import Loading from '../Common/Loading';
+import { PLACEHOLDER_IMAGE } from '../../utils/constants';
 
 interface Cast {
   id: number;
@@ -174,7 +175,7 @@ const MovieDetails: React.FC = () => {
     : '';
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : '/placeholder-movie.jpg';
+    : PLACEHOLDER_IMAGE;
 
   const trailer = getTrailer();
   const director = getDirector();

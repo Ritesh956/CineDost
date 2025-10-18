@@ -7,6 +7,7 @@ import { type Movie, type Rating } from '../../types';
 
 // If your types file is elsewhere, adjust the path accordingly.
 import Loading from '../Common/Loading';
+import { PLACEHOLDER_IMAGE } from '../../utils/constants';
 
 interface RatedMovie extends Movie {
   userRating: number;
@@ -159,11 +160,11 @@ const RatingHistory: React.FC = () => {
                   <img 
                     src={movie.poster_path 
                       ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
-                      : '/placeholder-movie.jpg'
+                      : PLACEHOLDER_IMAGE
                     }
                     alt={movie.title}
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/placeholder-movie.jpg';
+                      (e.target as HTMLImageElement).src = PLACEHOLDER_IMAGE;
                     }}
                   />
                 </div>
