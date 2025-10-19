@@ -2,10 +2,10 @@
   "name": "cinedost-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
   "type": "module",
+  "proxy": "http://localhost:5000",
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=20.19.0",
     "npm": ">=8.0.0"
   },
   "dependencies": {
@@ -25,9 +25,9 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "npm run build:tsc && npm run build:vite",
+    "build": "vite build",
     "build:tsc": "tsc",
-    "build:vite": "npx vite build",
+    "build:vite": "vite build",
     "preview": "vite preview",
     "server": "npm run dev --prefix backend",
     "dev": "concurrently -n \"FRONTEND,BACKEND\" -c \"blue,green\" \"npm start\" \"npm run server\""
